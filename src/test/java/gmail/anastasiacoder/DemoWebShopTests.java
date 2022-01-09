@@ -18,10 +18,12 @@ import static org.hamcrest.Matchers.is;
 
 public class DemoWebShopTests {
 
+    private static String url = "http://demowebshop.tricentis.com/";
+
     @BeforeAll
     static void prepare() {
-        RestAssured.baseURI = "http://demowebshop.tricentis.com/";
-        Configuration.baseUrl = "http://demowebshop.tricentis.com/";
+        RestAssured.baseURI = url;
+        Configuration.baseUrl = url;
     }
 
     @Test
@@ -39,7 +41,6 @@ public class DemoWebShopTests {
                         .statusCode(200)
                         .body("success", is(true))
                         .body("message", is("The product has been added to your <a href=\"/cart\">shopping cart</a>"))
-//                        .body("updatetopcartsectionhtml", is("(15)"))
                         .extract().response();
 
         System.out.println("Response: " + response.path("updatetopcartsectionhtml"));
