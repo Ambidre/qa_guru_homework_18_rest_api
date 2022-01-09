@@ -18,7 +18,7 @@ import static org.hamcrest.Matchers.is;
 
 public class DemoWebShopTests {
 
-    private static String url = "http://demowebshop.tricentis.com/";
+    static final String url = "http://demowebshop.tricentis.com/";
 
     @BeforeAll
     static void prepare() {
